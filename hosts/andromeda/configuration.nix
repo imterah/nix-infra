@@ -30,10 +30,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-      "audio"
       "docker"
-      "input"
-      "plugdev"
     ];
 
     openssh.authorizedKeys.keys = [

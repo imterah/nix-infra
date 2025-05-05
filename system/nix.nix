@@ -10,11 +10,7 @@
     allowUnfreePredicate = _: true;
     cudaSupport = true;
   };
-  nixpkgs.overlays = [
-    outputs.overlays.additions
-    outputs.overlays.modifications
-    outputs.overlays.unstable-packages
-  ];
+
   nix = let
     flakeInputs = lib.filterAttrs (_: lib.isType "flake") inputs;
   in {
