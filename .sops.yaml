@@ -1,7 +1,9 @@
 keys:
-  - &primkey age199lxhl3xjuf0xxgskxa3kdz89atnt6689g0pqr6kup4kvqe49vmsq63t35
+  - &userkey age199lxhl3xjuf0xxgskxa3kdz89atnt6689g0pqr6kup4kvqe49vmsq63t35
+  - &hostkey age1g2qdzlgqsnuz2mc2cwlt5up3d9h8krkquhryt76e2j47dzgz498sudy45e
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
-    - age:
-      - *primkey
+      - age:
+          - *userkey
+          - *hostkey

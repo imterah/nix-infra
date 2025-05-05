@@ -35,6 +35,7 @@
       "/var/lib/nixos"
       "/var/lib/docker"
       "/var/lib/systemd/coredump"
+      "/var/lib/sops-nix"
       "/etc/nixos"
       "/etc/NetworkManager"
     ];
@@ -42,7 +43,6 @@
       "/etc/machine-id"
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
-      "/var/lib/sops-nix/key.txt"
     ];
   };
 }

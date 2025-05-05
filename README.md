@@ -8,9 +8,11 @@ This is a work-in-progress and currently DOES NOT WORK. Please check back later.
 
 ## Setup
 
-### Bootstrapping a New Device
+### Setting up Sops
 
-This guide assumes you have a somewhat sane sops setup.
+TODO.
+
+### Bootstrapping a New Device
 
 1. First, boot the NixOS live environment (minimal ISO is recommended).
 2. Then, get the harddrive ID using `lsblk` or `fdisk -l`:
@@ -46,5 +48,11 @@ This guide assumes you have a somewhat sane sops setup.
 4. Add the host to `flake.nix`.
 5. Modify the disko configuration for our host to use the correct disk ID that we found earlier.
 6. Make any other additional modifications if needed.
-7. Copy/clone the configuration over to the host to install.
-8. Run `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount -f "$PWD#hostname"` to prepare the disk, replacing `hostname` with the host you want to switch to (ex. `andromeda`).
+
+### Installing the Configuration
+
+1. Copy/clone the configuration over to the host to install.
+2. Copy the sops key data to the host you are installing on (sops `key.txt` and `ssh_host_ed25519_key` to `/var/lib/sops-nix/`)
+3. Run `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount -f "$PWD#hostname"` to prepare the disk, replacing `hostname` with the host you want to install (ex. `andromeda`).
+4. Before installing, prepare sops inside the mounted filesystem: `sudo mkdir -p /mnt/persist/var/lib/sops-nix/; sudo cp -r /var/lib/sops-nix/ /mnt/persist/var/lib/sops-nix/`
+5. Run `sudo nixos-install --flake "$PWD#hostname"` to install the OS, replacing `hostname` with the host you want to install (ex. `andromeda`).

@@ -30,11 +30,10 @@
     extraGroups = [
       "wheel"
       "networkmanager"
-      "docker"
     ];
 
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ../../secrets/id_user.pub)
+      (builtins.readFile ../../data/id_user.pub)
     ];
   };
 
@@ -45,10 +44,13 @@
   boot.supportedFilesystems = [];
 
   # Services
-  services.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs.unstable) htop btop micro nano;
+    inherit (pkgs) htop btop micro nano;
   };
 
   system.stateVersion = "24.11";
