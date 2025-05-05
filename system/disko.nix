@@ -19,23 +19,30 @@
             };
             rootfs = {
               size = "100%";
+              name = "NixOS";
               content = {
-                "/root" = {
-                  mountpoint = "/";
-                  # mountOptions = ["compress=zstd" "noatime"];
-                };
-                "/persist" = {
-                  mountpoint = "/persist";
-                  # mountOptions = ["compress=zstd" "subvol=persist" "noatime"];
-                  mountOptions = ["subvol=persist" "noatime"];
-                };
-                "/home" = {
-                  mountpoint = "/home";
-                  mountOptions = ["compress=zstd" "subvol=home" "noatime"];
-                };
-                "/nix" = {
-                  mountpoint = "/nix";
-                  mountOptions = ["compress=zstd" "subvol=nix" "noatime"];
+                type = "btrfs";
+                extraArgs = ["-f"];
+                subvolumes = {
+                  root = {
+                    name = "root";
+                    mountpoint = "/";
+                  };
+                  persist = {
+                    name = "persist";
+                    mountpoint = "/persist";
+                    mountOptions = ["subvol=persist" "noatime"];
+                  };
+                  home = {
+                    name = "home";
+                    mountpoint = "/home";
+                    mountOptions = ["subvol=home" "noatime"];
+                  };
+                  nix = {
+                    name = "nix";
+                    mountpoint = "/nix";
+                    mountOptions = ["compress=zstd" "subvol=nix" "noatime"];
+                  };
                 };
               };
             };
