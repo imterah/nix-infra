@@ -1,6 +1,7 @@
 {lib, ...}: {
   fileSystems."/persist".neededForBoot = true;
   fileSystems."/nix".neededForBoot = true;
+
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp
     mount /dev/root_vg/root /btrfs_tmp
@@ -25,12 +26,14 @@
     btrfs subvolume create /btrfs_tmp/root
     umount /btrfs_tmp
   '';
+
   environment.persistence."/persist" = {
     enable = true;
     hideMounts = true;
     directories = [
       "/var/log"
       "/var/lib/nixos"
+      "/var/lib/docker"
       "/var/lib/systemd/coredump"
       "/etc/nixos"
       "/etc/NetworkManager"
@@ -39,7 +42,7 @@
       "/etc/machine-id"
       "/etc/ssh/ssh_host_ed25519_key"
       "/etc/ssh/ssh_host_ed25519_key.pub"
-      #"/var/lib/sops-nix/key.txt"
+      "/var/lib/sops-nix/key.txt"
     ];
   };
 }

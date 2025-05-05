@@ -1,12 +1,21 @@
-{inputs, ...}: {
+{inputs, ...}; let
+  secretspath = builtins.toString inputs.nix-secrets;
+in
+{
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
 
-  sops.defaultSopsFile = "${../secrets/secrets.yaml}";
-  sops.validateSopsFiles = false;
-  sops.defaultSopsFormat = "yaml";
-  sops.age.keyFile = "/persist/var/lib/sops-nix/key.txt";
-  sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
-  sops.age.generateKey = true;
+  sops = {
+    defaultSopsFile = "${secretspath}/secrets.yaml";
+    age = {
+      keyFile = "/var/lib/sops-nix/key.txt";
+      generateKey = false;
+    };
+    secrets = {
+      tera_passwd = {
+        neededForUsers = true;
+      };
+    };
+  };
 }

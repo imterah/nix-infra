@@ -16,14 +16,13 @@
     ../../system/i18n.nix
   ];
 
-  sops.secrets.tera-password.neededForUsers = true;
   users.mutableUsers = false;
 
   users.users.tera = {
     uid = 1000;
     description = "Tera";
     home = "/home/tera";
-    hashedPasswordFile = config.sops.secrets.tera-password.path;
+    hashedPasswordFile = config.sops.secrets.tera_password.path;
     isNormalUser = true;
     createHome = true;
     shell = pkgs.bash;

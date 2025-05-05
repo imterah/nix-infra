@@ -13,6 +13,10 @@
       url = "github:viperML/nh";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    nix-secrets = {
+      url = "git+https://git.terah.dev/imterah/sops?shallow=1&ref=main";
+      flake = false;
+    };
   };
 
   outputs = {
