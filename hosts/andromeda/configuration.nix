@@ -16,7 +16,7 @@
     ../../system/i18n.nix
 
     # Docker stacks
-    ./andromeda/stacks/traefik/docker-compose.nix
+    ./stacks/traefik/docker-compose.nix
   ];
 
   users.mutableUsers = false;
