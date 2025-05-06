@@ -67,7 +67,6 @@
       TimeoutSec = 300;
     };
     script = ''
-      cd /home/tera/Documents/ops/misc-git/nix-infra/hosts/andromeda/stacks/caddy/caddy
       docker build -t caddy-custom:2.10.0-builder -f ${./volume/Dockerfile} .
     '';
   };
