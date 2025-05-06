@@ -5,3 +5,6 @@ result-*
 
 # Ignore automatically generated direnv output
 .direnv
+
+# Docker garbage
+hosts/andromeda/stacks/*/*.yml
