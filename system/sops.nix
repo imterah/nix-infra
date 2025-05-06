@@ -19,6 +19,7 @@ in
       tera_password = {
         neededForUsers = true;
       };
+      reverse_proxy_client_privkey = {};
     };
   };
 }
