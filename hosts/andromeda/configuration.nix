@@ -17,6 +17,7 @@
 
     # Docker stacks
     ./stacks/traefik/docker-compose.nix
+    ./stacks/caddy/docker-compose.nix
   ];
 
   users.mutableUsers = false;

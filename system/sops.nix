@@ -20,6 +20,7 @@ in
         neededForUsers = true;
       };
       reverse_proxy_client_privkey = {};
+      caddy_docker_env = {};
     };
   };
 }

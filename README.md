@@ -2,9 +2,30 @@
 
 Work-in-progress NixOS Server Infrastructure based on [valerie's NixOS setup](https://git.dessa.dev/valnyx/nixos/src/branch/main).
 
-## WARNING
+## WIP
 
 This is a work-in-progress and currently DOES NOT WORK. Please check back later.
+
+### Checklist
+
+  - [x] Get basic install working
+  - [x] Configure reverse proxy
+  - [x] Configure firewall
+  - [x] Install Docker
+  - [x] Configure NFS mount
+  - [x] Configure Traefik & its dashboard
+  - [ ] Configure Caddy for internal service port forwarding (difficult!)
+  - [ ] Install Portainer for other servers & basic admin tasks
+  - [ ] Install Forgejo
+  - [ ] Install Personal Website
+  - [ ] Install Passbolt
+  - [ ] Install Pterodactyl Panel
+  - [ ] Install Immich
+  - [ ] Restore Forgejo
+  - [ ] Restore Passbolt
+  - [ ] Restore Pterodactyl Panel
+  - [ ] Restore Immich (difficult!)
+  - [ ] Get myself a treat :3
 
 ## Setup
 
