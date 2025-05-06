@@ -21,28 +21,38 @@
               size = "100%";
               name = "NixOS";
               content = {
-                type = "btrfs";
-                extraArgs = ["-f"];
-                subvolumes = {
-                  root = {
-                    name = "root";
-                    mountpoint = "/";
-                  };
-                  persist = {
-                    name = "persist";
-                    mountpoint = "/persist";
-                    mountOptions = ["subvol=persist" "noatime"];
-                  };
-                  home = {
-                    name = "home";
-                    mountpoint = "/home";
-                    mountOptions = ["subvol=home" "noatime"];
-                  };
-                  nix = {
-                    name = "nix";
-                    mountpoint = "/nix";
-                    mountOptions = ["compress=zstd" "subvol=nix" "noatime"];
-                  };
+                type = "lvm_pv";
+                vg = "root_vg";
+              };
+            };
+          };
+        };
+      };
+    };
+    lvm_vg = {
+      root_vg = {
+        type = "lvm_vg";
+        lvs = {
+          root = {
+            size = "100%FREE";
+            content = {
+              type = "btrfs";
+              extraArgs = ["-f"];
+              subvolumes = {
+                "/root" = {
+                  mountpoint = "/";
+                };
+                "/persist" = {
+                  mountpoint = "/persist";
+                  mountOptions = ["subvol=persist" "noatime"];
+                };
+                "/home" = {
+                  mountpoint = "/home";
+                  mountOptions = ["subvol=home" "noatime"];
+                };
+                "/nix" = {
+                  mountpoint = "/nix";
+                  mountOptions = ["subvol=nix" "noatime"];
                 };
               };
             };

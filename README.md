@@ -51,8 +51,9 @@ TODO.
 
 ### Installing the Configuration
 
-1. Copy/clone the configuration over to the host to install.
+1. Copy/clone the configuration over to the host to install and `cd` into it.
 2. Copy the sops key data to the host you are installing on (sops `key.txt` and `ssh_host_ed25519_key` to `/var/lib/sops-nix/`)
 3. Run `sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount -f "$PWD#hostname"` to prepare the disk, replacing `hostname` with the host you want to install (ex. `andromeda`).
-4. Before installing, prepare sops inside the mounted filesystem: `sudo mkdir -p /mnt/persist/var/lib/sops-nix/; sudo cp -r /var/lib/sops-nix/ /mnt/persist/var/lib/sops-nix/`
+4. Before installing, prepare sops inside the mounted filesystem: `sudo mkdir -p /mnt/persist/var/lib/sops-nix/; sudo cp -r /var/lib/sops-nix/ /mnt/persist/var/lib/; sudo chmod -R 755 /mnt/persist/var/lib/sops-nix/`
 5. Run `sudo nixos-install --flake "$PWD#hostname"` to install the OS, replacing `hostname` with the host you want to install (ex. `andromeda`).
+6. Copy the current configuration into `/etc/nixos`: `sudo cp -r $PWD/. /mnt/persist/etc/nixos`
