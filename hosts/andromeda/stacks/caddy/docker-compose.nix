@@ -32,9 +32,11 @@
       RestartSteps = lib.mkOverride 90 9;
     };
     after = [
+      "docker-build-caddy-web.service"
       "docker-volume-caddy_caddy.service"
     ];
     requires = [
+      "docker-build-caddy-web.service"
       "docker-volume-caddy_caddy.service"
     ];
     partOf = [
