@@ -60,6 +60,25 @@
 
   virtualisation.oci-containers.backend = "docker";
 
+  # Reverse Proxy setup
+  networking.wireguard.interfaces = {
+    wg0 = {
+      ips = [ "10.10.0.3/24" ];
+      privateKeyFile = config.sops.secrets.reverse_proxy_client_privkey.path;
+      table = "69";
+
+      postSetup = "ip rule add from 10.10.0.2 table 69";
+      preShutdown = "ip rule del from 10.10.0.2 table 69";
+
+      peers = [{
+        publicKey = "QXDlW73/+hKJu6CPiCmpSWOXqKvJPC+b7E7iuvRpL2A=";
+        allowedIPs = [ "0.0.0.0/0" "::/0" ];
+        endpoint = "terah.dev:55107";
+        persistentKeepalive = 25;
+      }];
+    };
+  };
+
   # Volumes
   fileSystems."/mnt/NASBox" = {
     device = "192.168.0.3:/mnt/Diskette/KubeData";
