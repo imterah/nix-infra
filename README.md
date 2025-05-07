@@ -1,10 +1,10 @@
 # Tera's NixOS Home Infrastructure
 
-Work-in-progress NixOS Server Infrastructure based on [valerie's NixOS setup](https://git.dessa.dev/valnyx/nixos/src/branch/main).
+Work-in-progress NixOS Server Infrastructure based on [valerie's NixOS setup](https://git.dessa.dev/valnyx/nixos/src/commit/fe5d9a5d2275157d3c8da527fe467e1587a86bfe).
 
 ## WIP
 
-This is a work-in-progress and currently DOES NOT WORK. Please check back later.
+This is a work-in-progress and currently is not production ready. Please check back later.
 
 ### Checklist
 
@@ -14,7 +14,7 @@ This is a work-in-progress and currently DOES NOT WORK. Please check back later.
   - [x] Install Docker
   - [x] Configure NFS mount
   - [x] Configure Traefik & its dashboard
-  - [ ] Configure Caddy for internal service port forwarding (difficult!)
+  - [x] Configure Caddy for internal service port forwarding (difficult!)
   - [ ] Install Portainer for other servers & basic admin tasks
   - [ ] Install Forgejo
   - [ ] Install Personal Website
@@ -26,6 +26,17 @@ This is a work-in-progress and currently DOES NOT WORK. Please check back later.
   - [ ] Restore Pterodactyl Panel
   - [ ] Restore Immich (difficult!)
   - [ ] Get myself a treat :3
+
+## Manifesto
+
+I want to have ultra reliable and secure infrastructure for my personal use. These goals are met using the following things:
+  - Heavily documented and reproducible infrastructure
+  - Ultra-reliability and higher security via impermanent infrastructure
+  - Not using a system that is flawed from the start (my poor Kubernetes setup)
+
+This server setup uses Docker, but not Docker Compose. Instead, we use NixOS built in OCI support, and `compose2nix` to help facilitate the setup of OCI containers.
+
+I don't want obscure software patches (even if reliable!) needed for Nix. I want the official distributions, which is why I'm not using Nixpkgs (ie. `services.immich.enable = true;`).
 
 ## Setup
 
