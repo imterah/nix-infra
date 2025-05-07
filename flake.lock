@@ -90,10 +90,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1746586071,
-        "narHash": "sha256-qKSXkhtJAYZQKIIf3EE/UrCGjlmMJhdpdFelEQz2+L8=",
+        "lastModified": 1746624081,
+        "narHash": "sha256-3CAGAowBrFbTXB1ZLNoZysZM8c+GFxbwHi3XUoS3flo=",
         "ref": "main",
-        "rev": "60d55ae56d5ca38e387e33e8fd186d83e8320839",
+        "rev": "641331a16088e444d4d22ac421916b5bde369f89",
         "shallow": true,
         "type": "git",
         "url": "https://git.terah.dev/imterah/sops"
@@ -139,11 +139,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1746422338,
-        "narHash": "sha256-NTtKOTLQv6dPfRe00OGSywg37A1FYqldS6xiNmqBUYc=",
+        "lastModified": 1746557022,
+        "narHash": "sha256-QkNoyEf6TbaTW5UZYX0OkwIJ/ZMeKSSoOMnSDPQuol0=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5b35d248e9206c1f3baf8de6a7683fee126364aa",
+        "rev": "1d3aeb5a193b9ff13f63f4d9cc169fb88129f860",
         "type": "github"
       },
       "original": {
