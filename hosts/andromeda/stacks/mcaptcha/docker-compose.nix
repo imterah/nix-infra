@@ -36,7 +36,7 @@
 
   virtualisation.oci-containers.containers."mcaptcha-db" = {
     image = "postgres:16.8";
-    environmentFiles = [ config.sops.secrets.mcaptcha_db_docker_env ];
+    environmentFiles = [ config.sops.secrets.mcaptcha_db_docker_env.path ];
     environment = {
       "PGDATA" = "/var/lib/postgresql/data/mcaptcha/";
       "POSTGRES_PASSWORD" = "password";
