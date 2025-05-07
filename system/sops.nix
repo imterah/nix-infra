@@ -25,6 +25,8 @@ in
       caddy_docker_env = {};
       forgejo_db_docker_env = {};
       forgejo_server_docker_env = {};
+      mcaptcha_db_docker_env = {};
+      mcaptcha_mcaptcha_docker_env = {};
     };
   };
 }

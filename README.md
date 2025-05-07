@@ -17,8 +17,9 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Configure Caddy for internal service port forwarding (difficult!)
   - [ ] Install Tailscale
   - [ ] Install Portainer for other servers & basic admin tasks
-  - [ ] Install Forgejo
+  - [x] Install Forgejo
   - [x] Install Personal Website
+  - [x] Install mCaptcha
   - [ ] Install Passbolt
   - [ ] Install Pterodactyl Panel
   - [ ] Install Immich
