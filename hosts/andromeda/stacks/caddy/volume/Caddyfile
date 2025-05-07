@@ -1,3 +1,24 @@
+# Local terah.dev connection isn't used in production, only in testing.
+# However, we're doing migration right now, so testing is important.
+
+terah.dev, *.terah.dev {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
+
+    reverse_proxy /* 127.0.0.1:8000
+}
+
+matrix.terah.dev, https://matrix.terah.dev:8448 {
+    tls {
+        dns cloudflare {env.CF_API_TOKEN}
+        resolvers 1.1.1.1
+    }
+
+    reverse_proxy /* 127.0.0.1:8000
+}
+
 hofers.cloud, *.hofers.cloud {
     tls {
         dns cloudflare {env.CF_API_TOKEN}
