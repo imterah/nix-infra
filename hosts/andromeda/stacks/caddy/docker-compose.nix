@@ -69,7 +69,9 @@
       TimeoutSec = 300;
     };
     script = ''
-      docker build -t caddy-custom:2.10.0-builder -f ${./volume/Dockerfile} .
+      if [[ "$(docker images -q caddy-custom:2.10.0-builder 2> /dev/null)" == "" ]]; then
+        docker build -t caddy-custom:2.10.0-builder -f ${./volume/Dockerfile} .
+      fi
     '';
   };
 

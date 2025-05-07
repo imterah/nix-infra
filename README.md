@@ -36,7 +36,7 @@ I want to have ultra reliable and secure infrastructure for my personal use. The
 
 This server setup uses Docker, but not Docker Compose. Instead, we use NixOS built in OCI support, and `compose2nix` to help facilitate the setup of OCI containers.
 
-I don't want obscure software patches (even if reliable!) needed for Nix. I want the official distributions, which is why I'm not using Nixpkgs (ie. `services.immich.enable = true;`).
+I don't want obscure software patches (even if reliable!) needed because of Nix. I want the official distributions, which is why I'm not using Nixpkgs (ie. `services.immich.enable = true;`).
 
 ## Setup
 
