@@ -15,9 +15,10 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Configure NFS mount
   - [x] Configure Traefik & its dashboard
   - [x] Configure Caddy for internal service port forwarding (difficult!)
+  - [ ] Install Tailscale
   - [ ] Install Portainer for other servers & basic admin tasks
   - [ ] Install Forgejo
-  - [ ] Install Personal Website
+  - [x] Install Personal Website
   - [ ] Install Passbolt
   - [ ] Install Pterodactyl Panel
   - [ ] Install Immich
