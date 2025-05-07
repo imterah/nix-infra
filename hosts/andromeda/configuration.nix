@@ -18,6 +18,7 @@
     # Docker stacks
     ./stacks/traefik/docker-compose.nix
     ./stacks/caddy/docker-compose.nix
+    ./stacks/forgejo/docker-compose.nix
     ./stacks/terah.dev/docker-compose.nix
   ];
 
