@@ -80,7 +80,7 @@
     environment = {
       "MCAPTCHA__server_IP" = "0.0.0.0";
       "MCAPTCHA_allow_demo" = "false";
-      "MCAPTCHA_allow_registration" = "true";
+      "MCAPTCHA_allow_registration" = "false";
       "MCAPTCHA_captcha_DEFAULT_DIFFICULTY_STRATEGY_avg_traffic_difficulty" = "50000";
       "MCAPTCHA_captcha_DEFAULT_DIFFICULTY_STRATEGY_avg_traffic_time" = "1";
       "MCAPTCHA_captcha_DEFAULT_DIFFICULTY_STRATEGY_broke_my_site_traffic_difficulty" = "5000000";
