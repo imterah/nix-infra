@@ -91,7 +91,7 @@
       "FORGEJO__service__REQUIRE_CAPTCHA_FOR_LOGIN" = "true";
       "FORGEJO__service__MCAPTCHA_URL" = "https://mcaptcha.terah.dev";
       "FORGEJO__service__CAPTCHA_TYPE" = "mcaptcha";
-      "FORGEJO__service__ENABLE_CAPTCHA" = "false";
+      "FORGEJO__service__ENABLE_CAPTCHA" = "true";
       "FORGEJO__service__REGISTER_MANUAL_CONFIRM" = "true";
       "FORGEJO__service__REQUIRE_EXTERNAL_REGISTRATION_CAPTCHA" = "true";
       "USER_GID" = "1000";
@@ -122,7 +122,7 @@
 
   systemd.services."docker-forgejo-server" = {
     serviceConfig = {
-      Restart = lib.mkOverride 90 "always";
+      Restart = lib.mkOverride 90 "unless-stopped";
       RestartMaxDelaySec = lib.mkOverride 90 "1m";
       RestartSec = lib.mkOverride 90 "100ms";
       RestartSteps = lib.mkOverride 90 9;

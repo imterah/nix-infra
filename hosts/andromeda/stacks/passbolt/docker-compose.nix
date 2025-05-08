@@ -27,7 +27,7 @@
 
   systemd.services."docker-passbolt-db" = {
     serviceConfig = {
-      Restart = lib.mkOverride 90 "always";
+      Restart = lib.mkOverride 90 "unless-stopped";
       RestartMaxDelaySec = lib.mkOverride 90 "1m";
       RestartSec = lib.mkOverride 90 "100ms";
       RestartSteps = lib.mkOverride 90 9;
@@ -77,7 +77,7 @@
 
   systemd.services."docker-passbolt-passbolt" = {
     serviceConfig = {
-      Restart = lib.mkOverride 90 "always";
+      Restart = lib.mkOverride 90 "unless-stopped";
       RestartMaxDelaySec = lib.mkOverride 90 "1m";
       RestartSec = lib.mkOverride 90 "100ms";
       RestartSteps = lib.mkOverride 90 9;
