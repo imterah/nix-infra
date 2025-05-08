@@ -48,7 +48,6 @@
     environment = {
       "POSTGRES_DB" = "immich";
       "POSTGRES_INITDB_ARGS" = "--data-checksums";
-      "POSTGRES_PASSWORD" = "pgpass";
       "POSTGRES_USER" = "postgres";
     };
     volumes = [
