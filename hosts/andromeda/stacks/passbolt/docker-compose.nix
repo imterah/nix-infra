@@ -65,9 +65,6 @@
       "traefik.http.routers.passbolthoferscloud.rule" = "Host(`passbolt.hofers.cloud`)";
     };
     cmd = [ "/usr/bin/wait-for.sh" "-t" "0" "db:3306" "--" "/docker-entrypoint.sh" ];
-    labels = {
-      "traefik.http.routers.passbolthoferscloud.rule" = "Host(`passbolt.hofers.cloud`)";
-    };
     dependsOn = [
       "passbolt-db"
     ];
