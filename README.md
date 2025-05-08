@@ -23,10 +23,12 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Install Passbolt
   - [x] Install Pterodactyl Panel
   - [x] Install Immich
-  - [ ] Restore Forgejo
-  - [ ] Restore Passbolt
+  - [ ] Install Synapse
+  - [x] Restore Forgejo
+  - [ ] Restore Synapse
+  - [x] Restore Passbolt
   - [ ] Restore Pterodactyl Panel
-  - [ ] Restore Immich (difficult!)
+  - [ ] Restore Immich (difficult!) (halfway done. DB needs restoration but images copied)
   - [ ] Get myself a treat :3
 
 ## Manifesto
