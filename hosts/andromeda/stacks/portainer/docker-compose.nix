@@ -10,8 +10,8 @@
       "portainer_portainer:/data:rw"
     ];
     labels = {
-      "traefik.http.routers.terahdev.rule" = "Host(`portainer.hofers.cloud`)";
-      "traefik.http.services.gitterahdev.loadbalancer.server.port" = "9000";
+      "traefik.http.routers.portainerhoferscloud.rule" = "Host(`portainer.hofers.cloud`)";
+      "traefik.http.services.portainerhoferscloud.loadbalancer.server.port" = "9000";
     };
     log-driver = "journald";
     extraOptions = [
