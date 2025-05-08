@@ -134,6 +134,7 @@
     ];
     labels = {
       "traefik.http.routers.immichhoferscloud.rule" = "Host(`immich.hofers.cloud`)";
+      "traefik.http.services.immichhoferscloud.loadbalancer.server.port" = "2283";
     };
     dependsOn = [
       "immich_postgres"
