@@ -101,7 +101,7 @@
       "pterodactyl_ptero_var:/app/var:rw"
     ];
     labels = {
-      "traefik.http.routers.pterodactyl.rule" = "Host(`pterodactyl.hofers.cloud`)";
+      "traefik.http.routers.pterodactylhoferscloud.rule" = "Host(`pterodactyl.hofers.cloud`)";
     };
     dependsOn = [
       "pterodactyl-cache"

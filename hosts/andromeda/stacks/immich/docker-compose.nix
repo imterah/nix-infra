@@ -133,7 +133,7 @@
       "/mnt/NASBox/immich/uploads:/usr/src/app/upload:rw"
     ];
     labels = {
-      "traefik.http.routers.pterodactyl.rule" = "Host(`immich.hofers.cloud`)";
+      "traefik.http.routers.immichhoferscloud.rule" = "Host(`immich.hofers.cloud`)";
     };
     dependsOn = [
       "immich_postgres"
