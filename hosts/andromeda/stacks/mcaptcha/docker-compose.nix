@@ -101,9 +101,6 @@
       "MCAPTCHA_source_code" = "https://github.com/mCaptcha/mCaptcha";
       "PORT" = "7000";
     };
-    ports = [
-      "7000:7000/tcp"
-    ];
     dependsOn = [
       "mcaptcha-cache"
       "mcaptcha-db"
