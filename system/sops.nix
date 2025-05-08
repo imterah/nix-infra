@@ -31,6 +31,8 @@ in
       passbolt_passbolt_docker_env = {};
       pterodactyl_db_docker_env = {};
       pterodactyl_pterodactyl_docker_env = {};
+      immich_db_docker_env = {};
+      immich_immich_docker_env = {};
     };
   };
 }

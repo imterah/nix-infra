@@ -16,14 +16,18 @@
     ../../system/i18n.nix
 
     # Docker stacks
+    ## Bootstrap
     ./stacks/traefik/docker-compose.nix
     ./stacks/caddy/docker-compose.nix
+    ## Internal
     ./stacks/portainer/docker-compose.nix
     ./stacks/passbolt/docker-compose.nix
     ./stacks/pterodactyl/docker-compose.nix
+    ./stacks/immich/docker-compose.nix
+    ## Public
+    ./stacks/terah.dev/docker-compose.nix
     ./stacks/mcaptcha/docker-compose.nix
     ./stacks/forgejo/docker-compose.nix
-    ./stacks/terah.dev/docker-compose.nix
   ];
 
   users.mutableUsers = false;

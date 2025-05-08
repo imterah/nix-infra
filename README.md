@@ -20,9 +20,9 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Install Forgejo
   - [x] Install Personal Website
   - [x] Install mCaptcha
-  - [ ] Install Passbolt
-  - [ ] Install Pterodactyl Panel
-  - [ ] Install Immich
+  - [x] Install Passbolt
+  - [x] Install Pterodactyl Panel
+  - [x] Install Immich
   - [ ] Restore Forgejo
   - [ ] Restore Passbolt
   - [ ] Restore Pterodactyl Panel
