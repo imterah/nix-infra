@@ -27,6 +27,8 @@ in
       forgejo_server_docker_env = {};
       mcaptcha_db_docker_env = {};
       mcaptcha_mcaptcha_docker_env = {};
+      passbolt_db_docker_env = {};
+      passbolt_passbolt_docker_env = {};
     };
   };
 }

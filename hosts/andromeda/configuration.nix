@@ -19,8 +19,9 @@
     ./stacks/traefik/docker-compose.nix
     ./stacks/caddy/docker-compose.nix
     ./stacks/portainer/docker-compose.nix
-    ./stacks/forgejo/docker-compose.nix
+    ./stacks/passbolt/docker-compose.nix
     ./stacks/mcaptcha/docker-compose.nix
+    ./stacks/forgejo/docker-compose.nix
     ./stacks/terah.dev/docker-compose.nix
   ];
 

@@ -16,7 +16,7 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Configure Traefik & its dashboard
   - [x] Configure Caddy for internal service port forwarding (difficult!)
   - [ ] Install Tailscale
-  - [ ] Install Portainer for other servers & basic admin tasks
+  - [x] Install Portainer for other servers & basic admin tasks
   - [x] Install Forgejo
   - [x] Install Personal Website
   - [x] Install mCaptcha
