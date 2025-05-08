@@ -29,6 +29,8 @@ in
       mcaptcha_mcaptcha_docker_env = {};
       passbolt_db_docker_env = {};
       passbolt_passbolt_docker_env = {};
+      pterodactyl_db_docker_env = {};
+      pterodactyl_pterodactyl_docker_env = {};
     };
   };
 }
