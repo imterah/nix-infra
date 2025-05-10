@@ -61,9 +61,7 @@
       "${config.sops.secrets.synapse_synapse_signing_docker_env.path}:/data/matrix.terah.dev.signing.key:ro"
     ];
     labels = {
-      "traefik.enable" = "true";
-      "traefik.http.routers.http-synapse.entryPoints" = "http";
-      "traefik.http.routers.http-synapse.rule" = "Host(`matrix.terah.dev`)";
+      "traefik.http.routers.matrixterahdev.rule" = "Host(`matrix.terah.dev`)";
     };
     dependsOn = [
       "synapse-db"
