@@ -44,10 +44,13 @@
     ];
   };
 
+  # Manually set the UID and GID to 0 in the environment and in the user configuration to fix sops issues
   virtualisation.oci-containers.containers."synapse-synapse" = {
     image = "docker.io/matrixdotorg/synapse:latest";
     environment = {
       "SYNAPSE_CONFIG_PATH" = "/data/homeserver.yaml";
+      "UID" = "0";
+      "GID" = "0";
     };
     user = "0:0";
     volumes = [
