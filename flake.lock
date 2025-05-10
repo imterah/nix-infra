@@ -90,10 +90,10 @@
     "nix-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1746850842,
-        "narHash": "sha256-WJkJVBndf68r0oObXggbqbTTh+5YvZqx6uagUAzDoeQ=",
+        "lastModified": 1746851417,
+        "narHash": "sha256-ee9LiAOM8eSt8prwproKsFLzS4+a97xdxmQ2j1mmQCk=",
         "ref": "main",
-        "rev": "2b38dd160cd7b277720defae0b51248cb8bb5c93",
+        "rev": "14bd7ea313b5d9c944d7e338c52116810da726e2",
         "shallow": true,
         "type": "git",
         "url": "https://git.terah.dev/imterah/sops"
