@@ -49,6 +49,7 @@
     environment = {
       "SYNAPSE_CONFIG_PATH" = "/data/homeserver.yaml";
     };
+    user = "0:0";
     volumes = [
       "synapse_synapse:/data:rw"
       "/mnt/NASBox/synapse/uploads:/data/media_store:rw"
