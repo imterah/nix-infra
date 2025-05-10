@@ -2,11 +2,9 @@
 
 Work-in-progress NixOS Server Infrastructure based on [valerie's NixOS setup](https://git.dessa.dev/valnyx/nixos/src/commit/fe5d9a5d2275157d3c8da527fe467e1587a86bfe).
 
-## WIP
+## Checklist
 
-This is a work-in-progress and currently is not production ready. Please check back later.
-
-### Checklist
+Stage 1:
 
   - [x] Get basic install working
   - [x] Configure reverse proxy
@@ -15,7 +13,7 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Configure NFS mount
   - [x] Configure Traefik & its dashboard
   - [x] Configure Caddy for internal service port forwarding (difficult!)
-  - [ ] Install Tailscale
+  - [x] Install Tailscale
   - [x] Install Portainer for other servers & basic admin tasks
   - [x] Install Forgejo
   - [x] Install Personal Website
@@ -23,13 +21,26 @@ This is a work-in-progress and currently is not production ready. Please check b
   - [x] Install Passbolt
   - [x] Install Pterodactyl Panel
   - [x] Install Immich
-  - [ ] Install Synapse
+  - [x] Install Synapse
   - [x] Restore Forgejo
   - [ ] Restore Synapse
   - [x] Restore Passbolt
-  - [ ] Restore Pterodactyl Panel
-  - [ ] Restore Immich (difficult!) (halfway done. DB needs restoration but images copied)
-  - [ ] Get myself a treat :3
+  - [x] Restore Pterodactyl Panel
+  - [x] Restore Immich
+
+Stage 2:
+
+  - [ ] Bootstrap `milkyway` server
+  - [ ] Set up WireGuard
+
+Stage 3:
+
+  - [ ] Migrate main computer config NixOS tree to here
+  - [ ] Rebrand NixOS repo to be more generic (Pheonix/`pheonix-iac` -> PheoNIX referencing both the concept of Pheonixes and NixOS)
+
+Stage 4:
+
+  - [ ] Party
 
 ## Manifesto
 

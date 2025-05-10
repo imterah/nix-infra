@@ -23,6 +23,7 @@ in
       };
       reverse_proxy_client_privkey = {};
       caddy_docker_env = {};
+      tailscale_docker_env = {};
       forgejo_db_docker_env = {};
       forgejo_server_docker_env = {};
       mcaptcha_db_docker_env = {};
@@ -33,6 +34,9 @@ in
       pterodactyl_pterodactyl_docker_env = {};
       immich_db_docker_env = {};
       immich_immich_docker_env = {};
+      synapse_db_docker_env = {};
+      synapse_synapse_docker_env = {};
+      synapse_synapse_signing_docker_env = {};
     };
   };
 }

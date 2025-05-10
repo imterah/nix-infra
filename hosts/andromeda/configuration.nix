@@ -20,6 +20,7 @@
     ./stacks/traefik/docker-compose.nix
     ./stacks/caddy/docker-compose.nix
     ## Internal
+    ./stacks/tailscale/docker-compose.nix
     ./stacks/portainer/docker-compose.nix
     ./stacks/passbolt/docker-compose.nix
     ./stacks/pterodactyl/docker-compose.nix
@@ -28,6 +29,7 @@
     ./stacks/terah.dev/docker-compose.nix
     ./stacks/mcaptcha/docker-compose.nix
     ./stacks/forgejo/docker-compose.nix
+    ./stacks/synapse/docker-compose.nix
   ];
 
   users.mutableUsers = false;
@@ -88,6 +90,12 @@
         persistentKeepalive = 25;
       }];
     };
+  };
+
+  # Tailscale fixer-uppers
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
   };
 
   # Volumes
