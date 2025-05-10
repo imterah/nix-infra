@@ -49,6 +49,7 @@
     image = "docker.io/matrixdotorg/synapse:latest";
     environment = {
       "SYNAPSE_CONFIG_PATH" = "/data/homeserver.yaml";
+      # This sends a signal to Synapse's init code for ownership things: https://github.com/matrix-org/synapse/blob/develop/docker/start.py#L202
       "UID" = "0";
       "GID" = "0";
     };
