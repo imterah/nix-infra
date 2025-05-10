@@ -4,7 +4,7 @@ Work-in-progress NixOS Server Infrastructure based on [valerie's NixOS setup](ht
 
 ## Checklist
 
-Stage 1:
+Stage 1: **DONE**
 
   - [x] Get basic install working
   - [x] Configure reverse proxy
@@ -23,7 +23,7 @@ Stage 1:
   - [x] Install Immich
   - [x] Install Synapse
   - [x] Restore Forgejo
-  - [ ] Restore Synapse
+  - [x] Restore Synapse
   - [x] Restore Passbolt
   - [x] Restore Pterodactyl Panel
   - [x] Restore Immich
@@ -31,7 +31,8 @@ Stage 1:
 Stage 2:
 
   - [ ] Bootstrap `milkyway` server
-  - [ ] Set up WireGuard
+  - [ ] Set up WireGuard on `milkyway`
+  - [ ] Bootstrap NVIDIA GRID vGPU on `andromeda`
 
 Stage 3:
 
@@ -40,7 +41,7 @@ Stage 3:
 
 Stage 4:
 
-  - [ ] Party
+  - [ ] Party!
 
 ## Manifesto
 
