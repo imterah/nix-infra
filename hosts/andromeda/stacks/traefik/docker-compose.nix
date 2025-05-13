@@ -17,7 +17,10 @@
 
   systemd.services."docker-traefik-reverse-proxy" = {
     serviceConfig = {
-      Restart = lib.mkOverride 90 "no";
+      Restart = lib.mkOverride 90 "always";
+      RestartMaxDelaySec = lib.mkOverride 90 "1m";
+      RestartSec = lib.mkOverride 90 "100ms";
+      RestartSteps = lib.mkOverride 90 9;
     };
     partOf = [
       "docker-compose-traefik-root.target"
