@@ -93,9 +93,12 @@
   };
 
   # Tailscale fixer-uppers
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_forward" = 1;
-    "net.ipv6.conf.all.forwarding" = 1;
+  networking.nat = {
+    enable = true;
+    enableIPv6 = true;
+    
+    internalInterface = "enp6s18";
+    externalInterfaces = [ "wg0" ];
   };
 
   # Volumes
