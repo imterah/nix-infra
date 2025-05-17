@@ -97,8 +97,8 @@
     enable = true;
     enableIPv6 = true;
     
-    internalInterface = "enp6s18";
-    externalInterfaces = [ "wg0" ];
+    internalInterfaces = [ "enp6s18" ];
+    externalInterface = "wg0";
   };
 
   # Volumes
