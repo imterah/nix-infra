@@ -16,7 +16,7 @@
     };
     dependsOn = [
       "headplane"
-    ]
+    ];
     log-driver = "journald";
     extraOptions = [
       "--network-alias=headplane"
