@@ -3,7 +3,7 @@
 
 {
   imports = [
-    ../../../../system/sops.nix
+    ../../../../../system/sops.nix
   ];
 
   # Containers
