@@ -19,7 +19,8 @@
     ## Bootstrap
     ./stacks/core/traefik/docker-compose.nix
     ./stacks/core/caddy/docker-compose.nix
-    ./stacks/core/tailscale/docker-compose.nix
+    ./stacks/core/ts-server/docker-compose.nix
+    ./stacks/core/ts-client/docker-compose.nix
     ## Internal
     ./stacks/private/portainer.hofers.cloud/docker-compose.nix
     ./stacks/private/passbolt.hofers.cloud/docker-compose.nix

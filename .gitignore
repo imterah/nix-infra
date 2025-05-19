@@ -7,4 +7,4 @@ result-*
 .direnv
 
 # Docker garbage
-hosts/andromeda/stacks/*/*.yml
+hosts/andromeda/stacks/**/*.yml
