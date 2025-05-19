@@ -17,19 +17,19 @@
 
     # Docker stacks
     ## Bootstrap
-    ./stacks/traefik/docker-compose.nix
-    ./stacks/caddy/docker-compose.nix
+    ./stacks/core/traefik/docker-compose.nix
+    ./stacks/core/caddy/docker-compose.nix
+    ./stacks/core/tailscale/docker-compose.nix
     ## Internal
-    ./stacks/tailscale/docker-compose.nix
-    ./stacks/portainer/docker-compose.nix
-    ./stacks/passbolt/docker-compose.nix
-    ./stacks/pterodactyl/docker-compose.nix
-    ./stacks/immich/docker-compose.nix
+    ./stacks/private/portainer.hofers.cloud/docker-compose.nix
+    ./stacks/private/passbolt.hofers.cloud/docker-compose.nix
+    ./stacks/private/pterodactyl.hofers.cloud/docker-compose.nix
+    ./stacks/private/immich.hofers.cloud/docker-compose.nix
     ## Public
-    ./stacks/terah.dev/docker-compose.nix
-    ./stacks/mcaptcha/docker-compose.nix
-    ./stacks/forgejo/docker-compose.nix
-    ./stacks/synapse/docker-compose.nix
+    ./stacks/public/terah.dev/docker-compose.nix
+    ./stacks/public/mcaptcha.terah.dev/docker-compose.nix
+    ./stacks/public/git.terah.dev/docker-compose.nix
+    ./stacks/public/matrix.terah.dev/docker-compose.nix
   ];
 
   users.mutableUsers = false;

@@ -8,7 +8,7 @@
     volumes = [
       "/var/run/docker.sock:/var/run/docker.sock:rw"
     ];
-    cmd = [ "--api.insecure=true" "--entryPoints.web.address=:8000" "--providers.docker" ];
+    cmd = [ "--api.insecure=true" "--entryPoints.web.address=:8000" "--entryPoints.web.forwardedHeaders.trustedIPs=10.10.0.3" "--providers.docker" ];
     log-driver = "journald";
     extraOptions = [
       "--network=host"
