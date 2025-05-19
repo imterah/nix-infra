@@ -22,6 +22,7 @@ in
         neededForUsers = true;
       };
       reverse_proxy_client_privkey = {};
+      protonvpn_privkey = {};
       caddy_docker_env = {};
       tailscale_docker_env = {};
       forgejo_db_docker_env = {};
