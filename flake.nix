@@ -1,7 +1,7 @@
 {
-  description = "Tera's Server Setup: 'When my data's tracking me, when my phone is spying, if not now, then when?'";
+  description = "Tera's Home Infrastructure";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     flake-utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     disko = {
       url = "github:nix-community/disko";
