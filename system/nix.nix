@@ -8,7 +8,6 @@
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
-    cudaSupport = true;
   };
 
   nix = let
@@ -38,6 +37,7 @@
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
     };
+
     # Opinionated: disable channels
     channel.enable = false;
 

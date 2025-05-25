@@ -14,6 +14,7 @@
     ../../system/sshd.nix
     ../../system/avahifixes.nix
     ../../system/i18n.nix
+    ../../system/nh.nix
 
     # Docker stacks
     ## Bootstrap
@@ -78,36 +79,40 @@
   networking.wireguard.interfaces = {
     # Reverse Proxy
     wg0 = {
-      ips = [ "10.10.0.3/24" ];
+      ips = ["10.10.0.3/24"];
       privateKeyFile = config.sops.secrets.reverse_proxy_client_privkey.path;
       table = "69";
 
       postSetup = "ip rule add from 10.10.0.2 table 69";
       preShutdown = "ip rule del from 10.10.0.2 table 69";
 
-      peers = [{
-        publicKey = "QXDlW73/+hKJu6CPiCmpSWOXqKvJPC+b7E7iuvRpL2A=";
-        allowedIPs = [ "0.0.0.0/0" "::/0" ];
-        endpoint = "terah.dev:55107";
-        persistentKeepalive = 25;
-      }];
+      peers = [
+        {
+          publicKey = "QXDlW73/+hKJu6CPiCmpSWOXqKvJPC+b7E7iuvRpL2A=";
+          allowedIPs = ["0.0.0.0/0" "::/0"];
+          endpoint = "terah.dev:55107";
+          persistentKeepalive = 25;
+        }
+      ];
     };
 
     # ProtonVPN
     wg1 = {
-      ips = [ "10.2.0.2/32" ];
+      ips = ["10.2.0.2/32"];
       privateKeyFile = config.sops.secrets.protonvpn_privkey.path;
       table = "70";
 
       postSetup = "ip rule add from 10.2.0.2 table 70";
       preShutdown = "ip rule del from 10.2.0.2 table 70";
 
-      peers = [{
-        publicKey = "OuhID2usMSMoGAiLExUhH0lrOMJQ3v8xFWS+6G3JLRs=";
-        allowedIPs = [ "0.0.0.0/0" ];
-        endpoint = "149.102.227.30:51820";
-        persistentKeepalive = 25;
-      }];
+      peers = [
+        {
+          publicKey = "OuhID2usMSMoGAiLExUhH0lrOMJQ3v8xFWS+6G3JLRs=";
+          allowedIPs = ["0.0.0.0/0"];
+          endpoint = "149.102.227.30:51820";
+          persistentKeepalive = 25;
+        }
+      ];
     };
   };
 
@@ -116,7 +121,7 @@
     enable = true;
     enableIPv6 = true;
 
-    internalInterfaces = [ "enp6s18" ];
+    internalInterfaces = ["enp6s18"];
     externalInterface = "wg0";
   };
 

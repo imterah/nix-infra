@@ -2,47 +2,6 @@
 
 Work-in-progress NixOS Server Infrastructure based on [valerie's NixOS setup](https://git.dessa.dev/valnyx/nixos/src/commit/fe5d9a5d2275157d3c8da527fe467e1587a86bfe).
 
-## Checklist
-
-Stage 1: **DONE**
-
-  - [x] Get basic install working
-  - [x] Configure reverse proxy
-  - [x] Configure firewall
-  - [x] Install Docker
-  - [x] Configure NFS mount
-  - [x] Configure Traefik & its dashboard
-  - [x] Configure Caddy for internal service port forwarding (difficult!)
-  - [x] Install Tailscale
-  - [x] Install Portainer for other servers & basic admin tasks
-  - [x] Install Forgejo
-  - [x] Install Personal Website
-  - [x] Install mCaptcha
-  - [x] Install Passbolt
-  - [x] Install Pterodactyl Panel
-  - [x] Install Immich
-  - [x] Install Synapse
-  - [x] Restore Forgejo
-  - [x] Restore Synapse
-  - [x] Restore Passbolt
-  - [x] Restore Pterodactyl Panel
-  - [x] Restore Immich
-
-Stage 2:
-
-  - [ ] Bootstrap `milkyway` server
-  - [ ] Set up WireGuard on `milkyway`
-  - [ ] Bootstrap NVIDIA GRID vGPU on `andromeda`
-
-Stage 3:
-
-  - [ ] Migrate main computer config NixOS tree to here
-  - [ ] Rebrand NixOS repo to be more generic (Pheonix/`pheonix-iac` -> PheoNIX referencing both the concept of Pheonixes and NixOS)
-
-Stage 4:
-
-  - [ ] Party!
-
 ## Manifesto
 
 I want to have ultra reliable and secure infrastructure for my personal use. These goals are met using the following things:
@@ -50,7 +9,7 @@ I want to have ultra reliable and secure infrastructure for my personal use. The
   - Ultra-reliability and higher security via impermanent infrastructure
   - Not using a system that is flawed from the start (my poor Kubernetes setup)
 
-This server setup uses Docker, but not Docker Compose. Instead, we use NixOS built in OCI support, and `compose2nix` to help facilitate the setup of OCI containers.
+The main server (andromeda)'s setup uses Docker, but not Docker Compose. Instead, we use NixOS built in OCI support, and `compose2nix` to help facilitate the setup of OCI containers.
 
 I don't want obscure software patches (even if reliable!) needed because of Nix. I want the official distributions, which is why I'm not using Nixpkgs (ie. `services.immich.enable = true;`).
 
