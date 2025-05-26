@@ -27,6 +27,9 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
+  # WTF??
+  hardware.firmware = [pkgs.linux-firmware];
+
   swapDevices = [];
 
   networking.useDHCP = lib.mkDefault true;

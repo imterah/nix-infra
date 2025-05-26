@@ -56,9 +56,6 @@
     # Remoting
     remmina
     moonlight-qt
-    parsec-bin
-    kubectl
-    kubernetes-helm
 
     # VPN
     trayscale
@@ -101,9 +98,8 @@
     micro
     bruno
     git
-    kdePackages.kate
 
-    transmission_4-qt
+    transmission_4
 
     # Management
     gnome-disk-utility

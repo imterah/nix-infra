@@ -7,6 +7,10 @@
     # Workstation-specific
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+    wallpapers = {
+      url = "git+https://git.terah.dev/imterah/wallpapers?shallow=1&ref=main";
+      flake = false;
+    };
 
     flake-utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
     disko.url = "github:nix-community/disko";
@@ -35,7 +39,8 @@
     system = "x86_64-linux";
   in
     mkFlake {
-      inherit self inputs nixpkgs;
+      inherit self inputs nixpkgs home-manager;
+      overlays = import ./overlays.nix {inherit inputs;};
 
       hostDefaults.extraArgs = {inherit flake-utils;};
       hostDefaults.specialArgs = {
@@ -59,6 +64,14 @@
           });
       in
         forEachSystem (pkgs: import ./shell.nix {inherit pkgs;});
+
+      channels.nixpkgs.overlaysBuilder = channels: [
+        (final: super: {
+          # WTF?? I shouldn't have to do this... *why*?
+          linux-firmware = channels.nixpkgs-unstable.linux-firmware;
+          vencord = channels.nixpkgs-unstable.vencord;
+        })
+      ];
 
       # Servers
       ## Main Docker-based host
@@ -92,20 +105,6 @@
             };
           };
           modules = [./home/personal.nix];
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit (self) outputs;
-          };
-        };
-
-        "tera@qubes" = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            config = {
-              allowUnfree = true;
-            };
-          };
-          modules = [./home/qubes.nix];
           extraSpecialArgs = {
             inherit inputs;
             inherit (self) outputs;

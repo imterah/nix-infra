@@ -1,8 +1,11 @@
 {
+  inputs,
   pkgs,
   lib,
   ...
-}: {
+}: let
+  wallpaperspath = builtins.toString inputs.wallpapers;
+in {
   gtk = {
     enable = true;
 
@@ -60,7 +63,7 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         binding = "<Super>Return";
-        command = "kitty";
+        command = "alacritty";
         name = "Open Terminal";
       };
 
@@ -71,8 +74,8 @@
       };
 
       "org/gnome/desktop/background" = {
-        picture-uri = "file:///${./wallpaper.png}";
-        picture-uri-dark = "file:///${./wallpaper.png}";
+        picture-uri = "file:///${wallpaperspath}/IPJ02960.jpg";
+        picture-uri-dark = "file:///${wallpaperspath}/IPJ02960.jpg";
       };
     };
   };
@@ -81,6 +84,7 @@
     # Gnome extensions
     gnomeExtensions.unite
     gnomeExtensions.user-themes
+    gnomeExtensions.dash-to-panel
 
     # Theme
     materia-theme
