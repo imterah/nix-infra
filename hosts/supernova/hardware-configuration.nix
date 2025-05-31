@@ -27,8 +27,11 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
-  # WTF??
-  hardware.firmware = [pkgs.linux-firmware];
+  # WTF? Shouldn't this be done automatically?
+  hardware.firmware = with pkgs; [
+    linux-firmware
+    sof-firmware
+  ];
 
   swapDevices = [];
 

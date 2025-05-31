@@ -99,7 +99,7 @@
     bruno
     git
 
-    transmission_4
+    transmission_4-qt
 
     # Management
     gnome-disk-utility
