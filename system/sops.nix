@@ -20,6 +20,8 @@ in {
       tera_password = {
         neededForUsers = true;
       };
+
+      reverse_proxy_server_privkey = {};
       reverse_proxy_client_privkey = {};
       protonvpn_privkey = {};
       caddy_docker_env = {};

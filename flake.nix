@@ -83,6 +83,17 @@
         ];
       };
 
+      ## Remote VPS
+      hosts.milkyway = {
+        system = "x86_64-linux";
+        modules = [
+          inputs.disko.nixosModules.default
+          (import ./hosts/andromeda/disko.nix {device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_54784382";})
+          inputs.impermanence.nixosModules.impermanence
+          ./hosts/andromeda/configuration.nix
+        ];
+      };
+
       # Workstations
       ## Main Laptop
       hosts.supernova = {

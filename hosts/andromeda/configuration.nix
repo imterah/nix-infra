@@ -36,6 +36,10 @@
 
   users.mutableUsers = false;
 
+  users.motd = ''
+    Welcome to Andromeda!
+  '';
+
   users.users.tera = {
     uid = 1000;
     description = "Tera";
@@ -59,11 +63,10 @@
     ];
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  security.sudo-rs.enable = true;
+
   networking.hostName = "andromeda";
   networking.networkmanager.enable = true;
-  boot.supportedFilesystems = [];
 
   # Services
   virtualisation.docker = {

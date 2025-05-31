@@ -9,12 +9,12 @@
   imports = [
     ./hardware-configuration.nix
     ./packages.nix
-    ../../system/nix.nix
-    ../../system/sops.nix
-    ../../system/sshd.nix
-    ../../system/avahifixes.nix
-    ../../system/i18n.nix
-    ../../system/nh.nix
+    ../../system/all/nix.nix
+    ../../system/all/sops.nix
+    ../../system/all/sshd.nix
+    ../../system/all/avahifixes.nix
+    ../../system/all/i18n.nix
+    ../../system/all/nh.nix
   ];
 
   users.mutableUsers = false;
@@ -33,6 +33,8 @@
       "networkmanager"
     ];
   };
+
+  security.sudo-rs.enable = true;
 
   programs.zsh.enable = true;
 
