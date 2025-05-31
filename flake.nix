@@ -67,8 +67,6 @@
 
       channels.nixpkgs.overlaysBuilder = channels: [
         (final: super: {
-          # WTF?? I shouldn't have to do this... *why*?
-          linux-firmware = channels.nixpkgs-unstable.linux-firmware;
           vencord = channels.nixpkgs-unstable.vencord;
         })
       ];
