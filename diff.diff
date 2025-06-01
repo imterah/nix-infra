@@ -1,0 +1,113 @@
+diff --git a/flake.nix b/flake.nix
+index d58409a..bfb7679 100755
+--- a/flake.nix
++++ b/flake.nix
+@@ -7,10 +7,10 @@
+     # Workstation-specific
+     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+     home-manager.url = "github:nix-community/home-manager";
+-    wallpapers = {
+-      url = "git+https://git.terah.dev/imterah/wallpapers?shallow=1&ref=main";
+-      flake = false;
+-    };
++    #wallpapers = {
++    #  url = "git+https://git.terah.dev/imterah/wallpapers?shallow=1&ref=main";
++    #  flake = false;
++    #};
+ 
+     flake-utils.url = "github:gytis-ivaskevicius/flake-utils-plus";
+     disko.url = "github:nix-community/disko";
+@@ -18,7 +18,7 @@
+     impermanence.url = "github:nix-community/impermanence";
+ 
+     nix-secrets = {
+-      url = "git+https://git.terah.dev/imterah/sops?shallow=1&ref=main";
++      url = "git+https://github.com/imterah/secrets?shallow=1&ref=main";
+       flake = false;
+     };
+   };
+@@ -88,9 +88,9 @@
+         system = "x86_64-linux";
+         modules = [
+           inputs.disko.nixosModules.default
+-          (import ./hosts/andromeda/disko.nix {device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_54784382";})
++          (import ./hosts/milkyway/disko.nix {device = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_54784382";})
+           inputs.impermanence.nixosModules.impermanence
+-          ./hosts/andromeda/configuration.nix
++          ./hosts/milkyway/configuration.nix
+         ];
+       };
+ 
+diff --git a/hosts/milkyway/configuration.nix b/hosts/milkyway/configuration.nix
+index 7cd1266..f6f269e 100755
+--- a/hosts/milkyway/configuration.nix
++++ b/hosts/milkyway/configuration.nix
+@@ -67,7 +67,7 @@
+   networking.wireguard.interfaces = {
+     # Reverse Proxy
+     wg0 = {
+-      listenPort = "55107";
++      listenPort = 55107;
+       ips = ["10.10.0.1/24"];
+       privateKeyFile = config.sops.secrets.reverse_proxy_server_privkey.path;
+ 
+@@ -93,10 +93,7 @@
+     inherit (pkgs) htop btop micro nano;
+   };
+ 
+-  networking.firewall = {
+-    enable = true;
+-    allowedTCPPorts = [80 443 55107];
+-  };
+-
++  # The VPS host has its own firewall. Might as well make it their job.
++  networking.firewall.enable = false;
+   system.stateVersion = "25.05";
+ }
+diff --git a/hosts/milkyway/disko.nix b/hosts/milkyway/disko.nix
+index a586c7a..1291a5a 100755
+--- a/hosts/milkyway/disko.nix
++++ b/hosts/milkyway/disko.nix
+@@ -7,13 +7,17 @@
+         content = {
+           type = "gpt";
+           partitions = {
+-            ESP = {
+-              name = "ESP";
++            mbr = {
++              name = "MBR";
++              size = "1M";
++              priority = 1;
++            };
++            boot = {
++              name = "Boot";
+               size = "500M";
+-              type = "EF00";
+               content = {
+                 type = "filesystem";
+-                format = "vfat";
++                format = "ext4";
+                 mountpoint = "/boot";
+               };
+             };
+diff --git a/hosts/milkyway/hardware-configuration.nix b/hosts/milkyway/hardware-configuration.nix
+index 5fcd702..1a27c05 100755
+--- a/hosts/milkyway/hardware-configuration.nix
++++ b/hosts/milkyway/hardware-configuration.nix
+@@ -11,9 +11,13 @@
+   imports = [
+     (modulesPath + "/profiles/qemu-guest.nix")
+   ];
+-
+-  boot.loader.systemd-boot.enable = true;
+-  boot.loader.efi.canTouchEfiVariables = true;
++  
++  boot.loader.limine = {
++    enable = true;
++    biosSupport = true;
++    biosDevice = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_54784382";
++  };
++  
+   boot.supportedFilesystems = [];
+ 
+   boot.initrd.availableKernelModules = ["uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod"];

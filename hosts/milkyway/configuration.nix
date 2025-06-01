@@ -67,7 +67,7 @@
   networking.wireguard.interfaces = {
     # Reverse Proxy
     wg0 = {
-      listenPort = "55107";
+      listenPort = 55107;
       ips = ["10.10.0.1/24"];
       privateKeyFile = config.sops.secrets.reverse_proxy_server_privkey.path;
 
@@ -93,10 +93,7 @@
     inherit (pkgs) htop btop micro nano;
   };
 
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [80 443 55107];
-  };
-
+  # The VPS host has its own firewall. Might as well make it their job.
+  networking.firewall.enable = false;
   system.stateVersion = "25.05";
 }

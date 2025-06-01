@@ -11,9 +11,13 @@
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  
+  boot.loader.limine = {
+    enable = true;
+    biosSupport = true;
+    biosDevice = "/dev/disk/by-id/scsi-0QEMU_QEMU_HARDDISK_54784382";
+  };
+  
   boot.supportedFilesystems = [];
 
   boot.initrd.availableKernelModules = ["uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod"];

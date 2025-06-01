@@ -7,10 +7,14 @@
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
-              name = "ESP";
+            mbr = {
+              name = "MBR";
+              size = "1M";
+              priority = 1;
+            };
+            boot = {
+              name = "Boot";
               size = "500M";
-              type = "EF00";
               content = {
                 type = "filesystem";
                 format = "vfat";
