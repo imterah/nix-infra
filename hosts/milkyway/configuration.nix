@@ -61,14 +61,19 @@
   # dumb reason.
   systemd.services.swapinit = {
     enable = true;
-    path = [ pkgs.btrfs-progs ];
+    path = [ pkgs.btrfs-progs pkgs.util-linux ];
     serviceConfig = {
       ExecStart = "${pkgs.writeShellScriptBin "swapinit" ''
         if [ ! -f /swap ]; then
           btrfs filesystem mkswapfile --size 4g --uuid clear /swap
         fi
 
-        swapon /swap
+        swapon | grep "/swap file"
+        SWAP_NOT_RUNNING=$?
+
+        if [ "$SWAP_NOT_RUNNING" -eq 1 ]; then
+          swapon /swap
+        fi
       ''}/bin/swapinit";
     };
   };
