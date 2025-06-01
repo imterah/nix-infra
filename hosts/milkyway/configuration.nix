@@ -53,6 +53,26 @@
   networking.hostName = "milkyway";
   networking.networkmanager.enable = true;
 
+  # btrfs swap configuration (snapshots need to be disabled so we have to do it this way apparently)
+  # Not putting this in the persist/ directory is intentional. We want the file to regenerate on boot
+  # so that if the swap file size changes, we can update it easily.
+  #
+  # We still check if the file exists though incase the service gets activated multiple times for some
+  # dumb reason.
+  systemd.services.swapinit = {
+    enable = true;
+    path = [ pkgs.btrfs-progs ];
+    serviceConfig = {
+      ExecStart = ''
+        if [ ! -f /swap ]; then
+          btrfs filesystem mkswapfile --size 4g --uuid clear /swap
+        fi
+
+        swapon /swap
+      '';
+    };
+  };
+
   # Services
   virtualisation.docker = {
     enable = true;
