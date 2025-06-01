@@ -69,7 +69,7 @@
         fi
 
         swapon /swap
-      ''}";
+      ''}/bin/swapinit";
     };
   };
 
