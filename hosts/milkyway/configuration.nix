@@ -63,13 +63,13 @@
     enable = true;
     path = [ pkgs.btrfs-progs ];
     serviceConfig = {
-      ExecStart = ''
+      ExecStart = "${pkgs.writeShellScriptBin "swapinit" ''
         if [ ! -f /swap ]; then
           btrfs filesystem mkswapfile --size 4g --uuid clear /swap
         fi
 
         swapon /swap
-      '';
+      ''}";
     };
   };
 
