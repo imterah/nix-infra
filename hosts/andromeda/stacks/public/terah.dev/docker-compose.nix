@@ -6,7 +6,7 @@
 }: {
   # Containers
   virtualisation.oci-containers.containers."terahdev-web" = {
-    image = "ghcr.io/imterah/personal-www:v1.0.3";
+    image = "ghcr.io/imterah/personal-www:v1.0.4";
     labels = {
       "traefik.http.routers.terahdev.rule" = "Host(`terah.dev`) || Host(`www.terah.dev`)";
     };
